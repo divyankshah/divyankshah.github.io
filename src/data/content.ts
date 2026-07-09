@@ -66,36 +66,50 @@ export const skills = {
   Languages: ["English (C1)", "German (A2)"],
 };
 
-export const projects = [
+type Project = {
+  title: string;
+  description: string;
+  tags: string[];
+  image?: { src: string; alt: string };
+  mockup?: "event" | "kyc" | "ai";
+};
+
+export const projects: Project[] = [
   {
     title: "Mobile Home Page Redesign",
     description: "Led the backend redesign of TIAA's mobile home page across Banking, Mutual Funds, Retirement, and Brokerage, serving 3M+ customers.",
     tags: ["Java", "Spring Boot", "Hibernate"],
+    image: { src: "/images/projects/tiaa-home.jpg", alt: "TIAA mobile app home page showing portfolio balance and asset allocation" },
   },
   {
     title: "Monolith → Microservices Migration",
     description: "Migrated a legacy monolith to microservices on AWS ECS and Lambda with Redis caching, cutting average mobile login time from 5s to 3s.",
     tags: ["AWS ECS", "AWS Lambda", "Redis", "Microservices"],
-  },
-  {
-    title: "Event-Driven Account Processing",
-    description: "Built Kafka-based event-driven services to process account events asynchronously, decoupling microservices and improving throughput under load.",
-    tags: ["Apache Kafka", "Spring Boot", "Event-Driven Design"],
+    image: { src: "/images/projects/tiaa-retirement-summary.jpg", alt: "TIAA retirement summary screen with balance history chart" },
   },
   {
     title: "Server-Driven UI Architecture",
     description: "Designed a server-driven layout architecture in Spring Boot, moving UI logic to the backend and cutting yearly mobile app releases by ~50%.",
     tags: ["Spring Boot", "Java", "System Design"],
+    image: { src: "/images/projects/tiaa-investment-mix.jpg", alt: "TIAA change future investments screen with server-driven multi-step allocation flow" },
+  },
+  {
+    title: "Event-Driven Account Processing",
+    description: "Built Kafka-based event-driven services to process account events asynchronously, decoupling microservices and improving throughput under load.",
+    tags: ["Apache Kafka", "Spring Boot", "Event-Driven Design"],
+    mockup: "event" as const,
   },
   {
     title: "KYC Liveness Verification App",
     description: "Built a real-time identity verification app from scratch in React and TypeScript, delivering liveness checks in under 100ms.",
     tags: ["React", "TypeScript", "Computer Vision"],
+    mockup: "kyc" as const,
   },
   {
     title: "Explainable AI for Content Moderation",
     description: "Researched explainable AI for abusive-content detection with NLP classifiers and a full-stack analysis app; co-authored a paper published in Springer.",
     tags: ["Python", "NLP", "Node.js", "React"],
+    mockup: "ai" as const,
   },
 ];
 

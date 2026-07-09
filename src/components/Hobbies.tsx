@@ -1,8 +1,11 @@
 import { hobbies } from "../data/content";
+import { useLightbox } from "../context/LightboxContext";
 
 export default function Hobbies() {
+  const { open } = useLightbox();
+
   return (
-    <section id="hobbies" className="section">
+    <section id="hobbies" className="section reveal">
       <h2 className="section__title">Beyond Code</h2>
       <div className="hobby-feature">
         <div className="hobby-feature__text">
@@ -11,9 +14,15 @@ export default function Hobbies() {
         </div>
         <div className="hobby-gallery">
           {hobbies.yoga.images.map((image) => (
-            <div key={image.src} className="hobby-gallery__item">
+            <button
+              key={image.src}
+              type="button"
+              className="hobby-gallery__item"
+              onClick={() => open(image)}
+              aria-label={`View larger image: ${image.alt}`}
+            >
               <img src={image.src} alt={image.alt} loading="lazy" />
-            </div>
+            </button>
           ))}
         </div>
       </div>

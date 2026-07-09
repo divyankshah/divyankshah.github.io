@@ -2,7 +2,7 @@ import { education, skills } from "../data/content";
 
 export default function About() {
   return (
-    <section id="about" className="section">
+    <section id="about" className="section reveal">
       <h2 className="section__title">About</h2>
       <div className="about">
         <div className="about__block">

@@ -2,7 +2,7 @@ import { profile } from "../data/content";
 
 export default function Contact() {
   return (
-    <section id="contact" className="section section--contact">
+    <section id="contact" className="section section--contact reveal">
       <h2 className="section__title">Get in Touch</h2>
       <p className="section__subtitle">
         Open to full-stack and backend engineering opportunities in Germany and the EU.
