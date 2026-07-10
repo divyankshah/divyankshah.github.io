@@ -46,16 +46,23 @@ export default function ExplainableAiMockup() {
       <text x="107" y="71" textAnchor="middle" fontSize="8" fontWeight="700" fill="#dc2626">3 pending</text>
 
       {/* comment card */}
-      <rect x="72" y="88" width="308" height="98" rx="12" fill="#ffffff" filter="url(#aiShadow)" />
-      <circle cx="92" cy="108" r="10" fill="#c7d2fe" />
-      <rect x="108" y="102" width="60" height="6" rx="3" fill="#374151" />
-      <rect x="108" y="112" width="36" height="5" rx="2.5" fill="#d1d5db" />
+      <rect x="72" y="84" width="308" height="112" rx="12" fill="#ffffff" filter="url(#aiShadow)" />
+      <circle cx="92" cy="104" r="10" fill="#c7d2fe" />
+      <rect x="108" y="98" width="60" height="6" rx="3" fill="#374151" />
+      <rect x="108" y="108" width="36" height="5" rx="2.5" fill="#d1d5db" />
 
       {(() => {
-        let x = 92;
-        const y = 138;
+        const startX = 92;
+        const maxX = 372;
+        const lineHeight = 22;
+        let x = startX;
+        let y = 128;
         return tokens.map((t, i) => {
           const width = t.text.length * 6.4 + 13;
+          if (x + width > maxX) {
+            x = startX;
+            y += lineHeight;
+          }
           const el = (
             <g key={i}>
               <rect
@@ -78,17 +85,17 @@ export default function ExplainableAiMockup() {
         });
       })()}
 
-      <rect x="92" y="158" width="90" height="18" rx="9" fill="#4f46e5" />
-      <text x="137" y="170" textAnchor="middle" fontSize="8" fontWeight="700" fill="#fff">Remove content</text>
-      <rect x="190" y="158" width="80" height="18" rx="9" fill="#ffffff" stroke="#d1d5db" strokeWidth="1" />
-      <text x="230" y="170" textAnchor="middle" fontSize="8" fontWeight="700" fill="#374151">Approve</text>
+      <rect x="92" y="168" width="90" height="18" rx="9" fill="#4f46e5" />
+      <text x="137" y="180" textAnchor="middle" fontSize="8" fontWeight="700" fill="#fff">Remove content</text>
+      <rect x="190" y="168" width="80" height="18" rx="9" fill="#ffffff" stroke="#d1d5db" strokeWidth="1" />
+      <text x="230" y="180" textAnchor="middle" fontSize="8" fontWeight="700" fill="#374151">Approve</text>
 
       {/* explanation breakdown */}
-      <rect x="72" y="196" width="308" height="90" rx="12" fill="#ffffff" filter="url(#aiShadow)" />
-      <text x="88" y="216" fontSize="9" fontWeight="700" fill="#111827">Explanation Breakdown</text>
+      <rect x="72" y="204" width="308" height="90" rx="12" fill="#ffffff" filter="url(#aiShadow)" />
+      <text x="88" y="222" fontSize="9" fontWeight="700" fill="#111827">Explanation Breakdown</text>
 
       {categories.map((c, i) => (
-        <g key={c.label} transform={`translate(88, ${228 + i * 18})`}>
+        <g key={c.label} transform={`translate(88, ${234 + i * 18})`}>
           <text x="0" y="6" fontSize="7.5" fill="#6b7280">{c.label}</text>
           <rect x="60" y="0" width="190" height="7" rx="3.5" fill="#e5e7eb" />
           <rect x="60" y="0" width={190 * (c.value / 100)} height="7" rx="3.5" fill={c.color} />

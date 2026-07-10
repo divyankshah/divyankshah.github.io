@@ -1,5 +1,5 @@
 export default function EventDrivenMockup() {
-  const bars = [38, 52, 44, 68, 58, 74, 62, 80, 70, 86];
+  const bars = [21, 29, 25, 38, 32, 41, 35, 45, 39, 48];
   const services = [
     { name: "Account Service", detail: "publishing events", color: "#4f46e5" },
     { name: "Notify Service", detail: "consuming · 0.2s lag", color: "#7c3aed" },
@@ -13,8 +13,8 @@ export default function EventDrivenMockup() {
           <feDropShadow dx="0" dy="2" stdDeviation="4" floodColor="#0f172a" floodOpacity="0.16" />
         </filter>
         <linearGradient id="barGradient" x1="0" y1="1" x2="0" y2="0">
-          <stop offset="0%" stopColor="#f97316" />
-          <stop offset="100%" stopColor="#fb923c" />
+          <stop offset="0%" stopColor="#1d4ed8" />
+          <stop offset="100%" stopColor="#3b82f6" />
         </linearGradient>
       </defs>
 
