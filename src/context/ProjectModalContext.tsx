@@ -10,6 +10,7 @@ type Project = {
   tags: string[];
   image?: { src: string; alt: string };
   mockup?: "event" | "kyc" | "ai";
+  links?: { label: string; url: string }[];
 };
 
 const mockups = {
@@ -81,6 +82,21 @@ export function ProjectModalProvider({ children }: { children: ReactNode }) {
                   {paragraph}
                 </p>
               ))}
+              {project.links && project.links.length > 0 && (
+                <div className="project-modal__links">
+                  {project.links.map((link) => (
+                    <a
+                      key={link.url}
+                      className="btn btn--ghost"
+                      href={link.url}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {link.label} ↗
+                    </a>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         </div>
