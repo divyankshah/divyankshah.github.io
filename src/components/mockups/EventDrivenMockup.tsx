@@ -1,51 +1,74 @@
 export default function EventDrivenMockup() {
+  const bars = [38, 52, 44, 68, 58, 74, 62, 80, 70, 86];
+  const services = [
+    { name: "Account Service", detail: "publishing events", color: "#4f46e5" },
+    { name: "Notify Service", detail: "consuming · 0.2s lag", color: "#7c3aed" },
+    { name: "Ledger Service", detail: "consuming · 0.1s lag", color: "#059669" },
+  ];
+
   return (
-    <svg viewBox="0 0 400 300" className="mockup" role="img" aria-label="Diagram of event-driven microservices connected through a Kafka message stream">
+    <svg viewBox="0 0 400 300" className="mockup" role="img" aria-label="Realistic mockup of an event stream monitoring dashboard showing Kafka throughput and consumer health">
       <defs>
-        <linearGradient id="kafkaGradient" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#fb923c" />
-          <stop offset="100%" stopColor="#f97316" />
+        <filter id="eventShadow" x="-30%" y="-30%" width="160%" height="160%">
+          <feDropShadow dx="0" dy="2" stdDeviation="4" floodColor="#0f172a" floodOpacity="0.16" />
+        </filter>
+        <linearGradient id="barGradient" x1="0" y1="1" x2="0" y2="0">
+          <stop offset="0%" stopColor="#f97316" />
+          <stop offset="100%" stopColor="#fb923c" />
         </linearGradient>
-        <marker id="arrowPurple" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-          <path d="M0,0 L6,3 L0,6 Z" fill="#8b5cf6" />
-        </marker>
-        <marker id="arrowTeal" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-          <path d="M0,0 L6,3 L0,6 Z" fill="#10b981" />
-        </marker>
       </defs>
 
-      <rect x="0" y="0" width="400" height="300" fill="var(--mockup-bg)" />
-      <line x1="60" y1="150" x2="340" y2="150" stroke="var(--mockup-line)" strokeWidth="1.5" strokeDasharray="5 6" opacity="0.5" />
+      <rect x="0" y="0" width="400" height="300" fill="#f4f5f7" />
 
-      <g>
-        <rect x="20" y="118" width="80" height="64" rx="12" fill="#3b82f6" fillOpacity="0.12" stroke="#3b82f6" strokeWidth="1.75" />
-        <text x="60" y="146" textAnchor="middle" fontSize="10.5" fill="#3b82f6" fontWeight="700">Account</text>
-        <text x="60" y="160" textAnchor="middle" fontSize="10.5" fill="#3b82f6" fontWeight="700">Service</text>
-      </g>
+      {/* window chrome */}
+      <rect x="0" y="0" width="400" height="26" fill="#e5e7eb" />
+      <circle cx="14" cy="13" r="4" fill="#ff5f57" />
+      <circle cx="28" cy="13" r="4" fill="#febc2e" />
+      <circle cx="42" cy="13" r="4" fill="#28c840" />
+      <rect x="130" y="7" width="140" height="12" rx="6" fill="#f9fafb" stroke="#d1d5db" strokeWidth="1" />
+      <text x="200" y="16" textAnchor="middle" fontSize="7" fill="#9ca3af">kafka.internal/monitor</text>
 
-      <g>
-        <rect x="160" y="86" width="80" height="128" rx="14" fill="url(#kafkaGradient)" />
-        <rect x="160" y="86" width="80" height="128" rx="14" fill="none" stroke="#ea580c" strokeWidth="1" opacity="0.4" />
-        <text x="200" y="144" textAnchor="middle" fontSize="10.5" fill="#fff" fontWeight="700">Kafka</text>
-        <text x="200" y="158" textAnchor="middle" fontSize="10.5" fill="#fff" fontWeight="700">Topic</text>
-        <circle cx="200" cy="112" r="3.5" fill="#fff" opacity="0.9" />
-        <circle cx="200" cy="188" r="3.5" fill="#fff" opacity="0.9" />
-      </g>
+      <text x="20" y="46" fontSize="13" fontWeight="700" fill="#111827">Event Stream Monitor</text>
 
-      <g>
-        <rect x="300" y="68" width="80" height="56" rx="12" fill="#8b5cf6" fillOpacity="0.12" stroke="#8b5cf6" strokeWidth="1.75" />
-        <text x="340" y="92" textAnchor="middle" fontSize="10.5" fill="#8b5cf6" fontWeight="700">Notify</text>
-        <text x="340" y="106" textAnchor="middle" fontSize="10.5" fill="#8b5cf6" fontWeight="700">Service</text>
-      </g>
+      {/* stat tiles */}
+      {[
+        { label: "Throughput", value: "12.4k/s", x: 20 },
+        { label: "Consumer Lag", value: "0.2s", x: 148 },
+        { label: "Active Topics", value: "6", x: 276 },
+      ].map((s) => (
+        <g key={s.label} transform={`translate(${s.x}, 56)`}>
+          <rect width="104" height="46" rx="10" fill="#ffffff" filter="url(#eventShadow)" />
+          <text x="12" y="20" fontSize="14" fontWeight="700" fill="#111827">{s.value}</text>
+          <text x="12" y="34" fontSize="7.5" fill="#6b7280">{s.label}</text>
+        </g>
+      ))}
 
-      <g>
-        <rect x="300" y="176" width="80" height="56" rx="12" fill="#10b981" fillOpacity="0.12" stroke="#10b981" strokeWidth="1.75" />
-        <text x="340" y="200" textAnchor="middle" fontSize="10.5" fill="#10b981" fontWeight="700">Ledger</text>
-        <text x="340" y="214" textAnchor="middle" fontSize="10.5" fill="#10b981" fontWeight="700">Service</text>
-      </g>
+      {/* throughput chart */}
+      <rect x="20" y="114" width="360" height="88" rx="12" fill="#ffffff" filter="url(#eventShadow)" />
+      <text x="34" y="132" fontSize="8.5" fontWeight="700" fill="#111827">account-events topic · messages/sec</text>
+      {bars.map((h, i) => (
+        <rect
+          key={i}
+          x={34 + i * 33}
+          y={190 - h}
+          width="20"
+          height={h}
+          rx="3"
+          fill="url(#barGradient)"
+          opacity={i === bars.length - 1 ? 1 : 0.85}
+        />
+      ))}
+      <line x1="34" y1="190" x2="366" y2="190" stroke="#e5e7eb" strokeWidth="1" />
 
-      <path d="M240 108 Q270 96 300 96" fill="none" stroke="#8b5cf6" strokeWidth="1.75" opacity="0.8" markerEnd="url(#arrowPurple)" />
-      <path d="M240 192 Q270 204 300 204" fill="none" stroke="#10b981" strokeWidth="1.75" opacity="0.8" markerEnd="url(#arrowTeal)" />
+      {/* service health list */}
+      <rect x="20" y="212" width="360" height="72" rx="12" fill="#ffffff" filter="url(#eventShadow)" />
+      {services.map((s, i) => (
+        <g key={s.name} transform={`translate(36, ${230 + i * 20})`}>
+          <circle cx="4" cy="0" r="4" fill={s.color} />
+          <text x="16" y="3" fontSize="8.5" fontWeight="700" fill="#111827">{s.name}</text>
+          <text x="360" y="3" textAnchor="end" fontSize="7.5" fill="#6b7280">{s.detail}</text>
+        </g>
+      ))}
     </svg>
   );
 }
