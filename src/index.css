@@ -646,6 +646,38 @@ button {
 }
 
 /* Awards */
+.award-photo {
+  display: block;
+  width: 100%;
+  max-width: 640px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  background: none;
+  position: relative;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.award-photo:hover,
+.award-photo:focus-visible {
+  border-color: var(--accent);
+  box-shadow: var(--shadow);
+}
+
+.award-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.award-photo:hover img {
+  transform: scale(1.02);
+}
+
 .grid--awards {
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }

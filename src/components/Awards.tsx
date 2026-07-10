@@ -1,4 +1,5 @@
-import { awards } from "../data/content";
+import { awards, awardsPhoto } from "../data/content";
+import { useLightbox } from "../context/LightboxContext";
 
 function TrophyIcon() {
   return (
@@ -13,9 +14,19 @@ function TrophyIcon() {
 }
 
 export default function Awards() {
+  const { open } = useLightbox();
+
   return (
     <section id="awards" className="section reveal">
       <h2 className="section__title">Awards & Recognition</h2>
+      <button
+        type="button"
+        className="award-photo"
+        onClick={() => open(awardsPhoto)}
+        aria-label={`View larger image: ${awardsPhoto.alt}`}
+      >
+        <img src={awardsPhoto.src} alt={awardsPhoto.alt} loading="lazy" />
+      </button>
       <div className="grid grid--awards">
         {awards.map((award) => (
           <article key={award.title} className="award-card">

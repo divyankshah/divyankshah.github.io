@@ -195,6 +195,11 @@ export const awards = [
   },
 ];
 
+export const awardsPhoto = {
+  src: "/images/awards/tiaa-award-trophies.jpg",
+  alt: "Super Team 2023 and Innovation Excellence Team 2021 award trophies from TIAA, engraved with Divyank Shah's name",
+};
+
 export const testimonials = [
   {
     quote:
