@@ -13,12 +13,12 @@ export default function Hobbies() {
           <p className="hobby-feature__description">{hobbies.yoga.description}</p>
         </div>
         <div className="hobby-gallery">
-          {hobbies.yoga.images.map((image) => (
+          {hobbies.yoga.images.map((image, i) => (
             <button
               key={image.src}
               type="button"
               className="hobby-gallery__item"
-              onClick={() => open(image)}
+              onClick={() => open(hobbies.yoga.images, i)}
               aria-label={`View larger image: ${image.alt}`}
             >
               <img src={image.src} alt={image.alt} loading="lazy" />

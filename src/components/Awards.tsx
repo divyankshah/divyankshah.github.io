@@ -23,7 +23,7 @@ export default function Awards() {
         <button
           type="button"
           className="award-panel__photo"
-          onClick={() => open(awardsPhoto)}
+          onClick={() => open([awardsPhoto])}
           aria-label={`View larger image: ${awardsPhoto.alt}`}
         >
           <img src={awardsPhoto.src} alt={awardsPhoto.alt} loading="lazy" />

@@ -212,7 +212,7 @@ export const testimonials = [
     quote:
       "I am pleased to recommend Divyank for his exceptional skills and work ethic. He is a quick learner who takes ownership of his projects and consistently delivers outstanding results. Divyank is not only a great team player but also possesses a remarkable ability to solve critical problems effectively. His proactive approach and dedication make him a valuable asset to any team.",
     name: "Vaibhav Shukla",
-    role: "Associate Director, TIAA Global Capabilities",
+    role: "Senior Associate Director, TIAA Global Capabilities",
     relation: "Senior to Divyank at TIAA",
   },
   {
