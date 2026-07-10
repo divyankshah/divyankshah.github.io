@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from "react";
-import { web3forms } from "../data/content";
+import { formspree } from "../data/content";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -12,21 +12,15 @@ export default function ContactForm() {
 
     const form = e.currentTarget;
     const formData = new FormData(form);
-    const payload = Object.fromEntries(formData.entries());
-    payload.access_key = web3forms.accessKey;
 
     try {
-      const res = await fetch("https://api.web3forms.com/submit", {
+      const res = await fetch(formspree.endpoint, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify(payload),
+        headers: { Accept: "application/json" },
+        body: formData,
       });
-      const result = await res.json();
 
-      if (result.success) {
+      if (res.ok) {
         setStatus("success");
         form.reset();
       } else {
@@ -47,7 +41,7 @@ export default function ContactForm() {
 
   return (
     <form className="contact-form" onSubmit={handleSubmit}>
-      <input type="checkbox" name="botcheck" className="contact-form__honeypot" tabIndex={-1} autoComplete="off" />
+      <input type="text" name="_gotcha" className="contact-form__honeypot" tabIndex={-1} autoComplete="off" />
 
       <div className="contact-form__row">
         <label className="contact-form__field">

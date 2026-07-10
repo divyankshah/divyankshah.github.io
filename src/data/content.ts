@@ -144,8 +144,8 @@ export const projects: Project[] = [
   },
 ];
 
-export const web3forms = {
-  accessKey: "003c37bc-34d0-44c9-bab2-4e18558bcb69",
+export const formspree = {
+  endpoint: "https://formspree.io/f/mbdvnpll",
 };
 
 export const hobbies = {
