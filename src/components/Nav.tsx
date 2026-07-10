@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import ThemeToggle from "./ThemeToggle";
 
 const links = [
   { href: "#about", label: "About" },
@@ -32,6 +33,7 @@ export default function Nav() {
             </a>
           ))}
         </nav>
+        <ThemeToggle />
         <button
           className="nav__toggle"
           aria-label="Toggle navigation"

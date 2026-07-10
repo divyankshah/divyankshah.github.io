@@ -9,6 +9,16 @@
       content="Divyank Sameer Shah — Software Engineer specializing in full-stack and cloud systems. Portfolio, experience, and projects."
     />
     <title>Divyank Sameer Shah — Software Engineer</title>
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("theme");
+          if (saved === "light" || saved === "dark") {
+            document.documentElement.setAttribute("data-theme", saved);
+          }
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

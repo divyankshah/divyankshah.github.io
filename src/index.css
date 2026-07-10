@@ -38,6 +38,39 @@
   }
 }
 
+/* Manual theme override (takes priority over prefers-color-scheme) */
+:root[data-theme="dark"] {
+  --bg: #0b0d12;
+  --bg-elevated: #12151c;
+  --border: #23272f;
+  --text: #eef0f3;
+  --text-muted: #9aa1ad;
+  --accent: #6ee7b7;
+  --accent-strong: #34d399;
+  --accent-rgb: 110, 231, 183;
+  --tag-bg: #1a1e26;
+  --shadow: 0 20px 45px -20px rgba(0, 0, 0, 0.55);
+  --mockup-bg: #0e1117;
+  --mockup-line: #3a4150;
+  --mockup-text: #c3c9d3;
+}
+
+:root[data-theme="light"] {
+  --bg: #fbfbfa;
+  --bg-elevated: #ffffff;
+  --border: #e6e6e3;
+  --text: #16181d;
+  --text-muted: #5c6370;
+  --accent: #0f9d68;
+  --accent-strong: #0b7d53;
+  --accent-rgb: 15, 157, 104;
+  --tag-bg: #f1f2ef;
+  --shadow: 0 20px 45px -24px rgba(22, 24, 29, 0.25);
+  --mockup-bg: #f5f6f3;
+  --mockup-line: #c7cbc4;
+  --mockup-text: #4c5158;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -159,6 +192,27 @@ button {
 
 .nav__links a:hover::after {
   right: 0;
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  color: var(--text);
+  cursor: pointer;
+  margin-left: 0.5rem;
+  transition: border-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-1px);
 }
 
 .nav__toggle {
