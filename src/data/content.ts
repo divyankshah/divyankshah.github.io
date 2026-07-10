@@ -145,7 +145,7 @@ export const projects: Project[] = [
 ];
 
 export const web3forms = {
-  accessKey: "YOUR_WEB3FORMS_ACCESS_KEY",
+  accessKey: "003c37bc-34d0-44c9-bab2-4e18558bcb69",
 };
 
 export const hobbies = {
