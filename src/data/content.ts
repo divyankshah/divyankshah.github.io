@@ -69,6 +69,7 @@ export const skills = {
 type Project = {
   title: string;
   description: string;
+  details: string[];
   tags: string[];
   image?: { src: string; alt: string };
   mockup?: "event" | "kyc" | "ai";
@@ -78,40 +79,74 @@ export const projects: Project[] = [
   {
     title: "Mobile Home Page Redesign",
     description: "Led the backend redesign of TIAA's mobile home page across Banking, Mutual Funds, Retirement, and Brokerage, serving 3M+ customers.",
+    details: [
+      "TIAA's mobile home page pulled data from a patchwork of legacy endpoints across four business lines (Banking, Mutual Funds, Retirement, Brokerage), which made the experience inconsistent and slow to change.",
+      "I led the backend redesign in Java, Spring Boot, and Hibernate, consolidating those endpoints into a unified data aggregation layer that served a consistent, faster-loading home page to 3M+ customers.",
+      "Worked closely with mobile, design, and product teams across all four business lines to ship a single unified experience instead of four disjointed ones.",
+    ],
     tags: ["Java", "Spring Boot", "Hibernate"],
     image: { src: "/images/projects/tiaa-home.jpg", alt: "TIAA mobile app home page showing portfolio balance and asset allocation" },
   },
   {
     title: "Monolith → Microservices Migration",
     description: "Migrated a legacy monolith to microservices on AWS ECS and Lambda with Redis caching, cutting average mobile login time from 5s to 3s.",
+    details: [
+      "The existing monolith was becoming a bottleneck for both performance and release velocity as TIAA's mobile traffic grew.",
+      "I migrated core services to a microservices architecture deployed on AWS ECS and Lambda, introducing Redis caching for session and account data on the hot path.",
+      "This cut average mobile login time from 5s to 3s and made the system far easier to scale horizontally during peak periods like open enrollment.",
+    ],
     tags: ["AWS ECS", "AWS Lambda", "Redis", "Microservices"],
     image: { src: "/images/projects/tiaa-retirement-summary.jpg", alt: "TIAA retirement summary screen with balance history chart" },
   },
   {
     title: "Server-Driven UI Architecture",
     description: "Designed a server-driven layout architecture in Spring Boot, moving UI logic to the backend and cutting yearly mobile app releases by ~50%.",
+    details: [
+      "Every layout tweak to the mobile home page previously required a full app store release cycle — slow, and risky for experimentation.",
+      "I designed a server-driven UI (SDUI) architecture in Spring Boot that moved layout and card-ordering logic from the app to the backend, so screens could be reconfigured without shipping new app binaries.",
+      "This cut yearly mobile app release cycles by roughly 50% and let product teams experiment with layout changes far faster.",
+    ],
     tags: ["Spring Boot", "Java", "System Design"],
     image: { src: "/images/projects/tiaa-investment-mix.jpg", alt: "TIAA change future investments screen with server-driven multi-step allocation flow" },
   },
   {
     title: "Event-Driven Account Processing",
     description: "Built Kafka-based event-driven services to process account events asynchronously, decoupling microservices and improving throughput under load.",
+    details: [
+      "Account lifecycle events — transactions, balance updates, notifications — were tightly coupled to the services that produced them, which limited throughput and made failures cascade.",
+      "I built event-driven microservices on Apache Kafka to process these events asynchronously, decoupling the account service from downstream consumers like the ledger and notification services.",
+      "This improved resilience and throughput under load, particularly during high-traffic periods when event volume spiked.",
+    ],
     tags: ["Apache Kafka", "Spring Boot", "Event-Driven Design"],
     mockup: "event" as const,
   },
   {
     title: "KYC Liveness Verification App",
     description: "Built a real-time identity verification app from scratch in React and TypeScript, delivering liveness checks in under 100ms.",
+    details: [
+      "Digital onboarding needed a fast, reliable way to confirm a real person — not a photo or video — was completing identity verification.",
+      "I built a real-time liveness verification app from scratch in React and TypeScript, integrating with backend identity verification services to perform face-presence and liveness checks in under 100ms.",
+      "Keeping the check that fast was deliberate — slow verification flows hurt onboarding conversion, so latency was treated as a product requirement, not just a performance nice-to-have.",
+    ],
     tags: ["React", "TypeScript", "Computer Vision"],
     mockup: "kyc" as const,
   },
   {
     title: "Explainable AI for Content Moderation",
     description: "Researched explainable AI for abusive-content detection with NLP classifiers and a full-stack analysis app; co-authored a paper published in Springer.",
+    details: [
+      "As a research intern, I worked on detecting abusive content in a way that didn't just classify text as toxic or not, but explained why — which tokens and phrases drove the model's decision.",
+      "Built NLP-based text classifiers plus an explainability layer, wrapped in a full-stack Node.js/React app for real-time content analysis (the mockup shown here mirrors that token-highlighting explanation view).",
+      "Co-authored a paper on the approach, published in Springer's Advances in Intelligent Systems and Computing.",
+    ],
     tags: ["Python", "NLP", "Node.js", "React"],
     mockup: "ai" as const,
   },
 ];
+
+export const web3forms = {
+  accessKey: "YOUR_WEB3FORMS_ACCESS_KEY",
+};
 
 export const hobbies = {
   yoga: {
