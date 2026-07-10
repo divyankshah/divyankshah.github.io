@@ -181,3 +181,40 @@ export const hobbies = {
   },
   other: ["Cooking", "Travelling"],
 };
+
+export const awards = [
+  {
+    title: "Super Team 2023",
+    org: "TIAA Global Capabilities — Enterprise Mobile Team",
+    year: "2023",
+  },
+  {
+    title: "Innovation Excellence Team 2021",
+    org: "TIAA India Titans — Annual Achiever Awards",
+    year: "2021",
+  },
+];
+
+export const testimonials = [
+  {
+    quote:
+      "I worked with Divyank on the TIAA Mobile project. Divyank is a fantastic FullStack resource. He is a tireless pursuer of excellence, especially on the AI implementation work done in our Mobile chatbots, Wearables and IOT devices (Alexa, Siri). He is technically very proficient and a great team player. I would highly recommend Divyank to anyone who is looking for an excellent Solution Lead Developer and hope to work with him again in the future.",
+    name: "Aruldass Muthusamy",
+    role: "Technical Lead",
+    relation: "Senior to Divyank, TIAA Mobile project",
+  },
+  {
+    quote:
+      "I am pleased to recommend Divyank for his exceptional skills and work ethic. He is a quick learner who takes ownership of his projects and consistently delivers outstanding results. Divyank is not only a great team player but also possesses a remarkable ability to solve critical problems effectively. His proactive approach and dedication make him a valuable asset to any team.",
+    name: "Vaibhav Shukla",
+    role: "Associate Director, TIAA Global Capabilities",
+    relation: "Senior to Divyank at TIAA",
+  },
+  {
+    quote:
+      "Having had the privilege of working closely with Divyank, I can confidently say that he possesses exceptional technical expertise. During his time at TIAA, Divyank was instrumental in driving the successful completion of several critical projects, demonstrating an impressive level of proficiency and dedication in his work.",
+    name: "Varatharaj E",
+    role: "Lead Mobile App Developer (Android & iOS)",
+    relation: "Worked with Divyank on the same team at TIAA",
+  },
+];

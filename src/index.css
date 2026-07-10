@@ -645,6 +645,110 @@ button {
   gap: 0.5rem;
 }
 
+/* Awards */
+.grid--awards {
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.award-card {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.75rem;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.award-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.award-card__icon {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  color: var(--accent);
+}
+
+.award-card__title {
+  margin: 0 0 0.3rem;
+  font-size: 1rem;
+}
+
+.award-card__org {
+  margin: 0 0 0.4rem;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
+
+.award-card__year {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* Testimonials */
+.grid--testimonials {
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.testimonial-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.testimonial-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.testimonial-card__quote {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  line-height: 1.7;
+  flex: 1;
+}
+
+.testimonial-card__author {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+}
+
+.testimonial-card__name {
+  font-weight: 700;
+  font-size: 0.92rem;
+}
+
+.testimonial-card__role {
+  font-size: 0.82rem;
+  color: var(--accent);
+}
+
+.testimonial-card__relation {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
 /* Hobbies */
 .hobby-feature {
   display: grid;
