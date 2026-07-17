@@ -21,7 +21,7 @@ export default function Hobbies() {
               onClick={() => open(hobbies.yoga.images, i)}
               aria-label={`View larger image: ${image.alt}`}
             >
-              <img src={image.src} alt={image.alt} loading="lazy" />
+              <img src={image.src} alt={image.alt} />
             </button>
           ))}
         </div>

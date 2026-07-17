@@ -194,7 +194,8 @@ button {
   right: 0;
 }
 
-.theme-toggle {
+.theme-toggle,
+.download-toggle {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -209,7 +210,8 @@ button {
   transition: border-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
 }
 
-.theme-toggle:hover {
+.theme-toggle:hover,
+.download-toggle:hover {
   border-color: var(--accent);
   color: var(--accent);
   transform: translateY(-1px);
@@ -1314,4 +1316,82 @@ button {
 .project-modal__close:hover {
   border-color: var(--accent);
   color: var(--accent);
+}
+
+/* Print / "Download portfolio" */
+@media print {
+  :root {
+    --bg: #ffffff;
+    --bg-elevated: #ffffff;
+    --border: #dcdcda;
+    --text: #16181d;
+    --text-muted: #4a4f57;
+    --accent: #0b7d53;
+    --accent-strong: #0b7d53;
+    --tag-bg: #f1f2ef;
+    --shadow: none;
+  }
+
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  body {
+    background: #fff;
+  }
+
+  .nav,
+  .theme-toggle,
+  .download-toggle,
+  .nav__toggle,
+  .hero__decor,
+  .card__media-hint,
+  .contact-form-wrapper,
+  .footer {
+    display: none !important;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .hero {
+    min-height: 0;
+    padding-top: 0.5in;
+  }
+
+  .section {
+    padding: 0.4in 0;
+    break-inside: avoid;
+  }
+
+  .card,
+  .award-panel,
+  .testimonial-card,
+  .timeline__item {
+    break-inside: avoid;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+
+  .card:hover,
+  .award-panel:hover,
+  .testimonial-card:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .hero__name {
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    background-clip: initial !important;
+    -webkit-text-fill-color: initial !important;
+    color: var(--text) !important;
+  }
 }

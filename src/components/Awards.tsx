@@ -26,7 +26,7 @@ export default function Awards() {
           onClick={() => open([awardsPhoto])}
           aria-label={`View larger image: ${awardsPhoto.alt}`}
         >
-          <img src={awardsPhoto.src} alt={awardsPhoto.alt} loading="lazy" />
+          <img src={awardsPhoto.src} alt={awardsPhoto.alt} />
         </button>
         <ul className="award-panel__list">
           {awards.map((award) => (

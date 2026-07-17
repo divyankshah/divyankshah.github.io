@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ThemeToggle from "./ThemeToggle";
+import DownloadButton from "./DownloadButton";
 
 const links = [
   { href: "#about", label: "About" },
@@ -33,6 +34,7 @@ export default function Nav() {
             </a>
           ))}
         </nav>
+        <DownloadButton />
         <ThemeToggle />
         <button
           className="nav__toggle"

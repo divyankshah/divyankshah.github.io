@@ -33,7 +33,7 @@ export default function Projects() {
             >
               <div className="card__media">
                 {project.image ? (
-                  <img src={project.image.src} alt={project.image.alt} loading="lazy" />
+                  <img src={project.image.src} alt={project.image.alt} />
                 ) : Mockup ? (
                   <Mockup />
                 ) : null}
