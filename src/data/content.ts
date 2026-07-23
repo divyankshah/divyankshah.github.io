@@ -1,6 +1,6 @@
 export const profile = {
   name: "Divyank Sameer Shah",
-  tagline: "Software Engineer — Full-Stack & Cloud Systems",
+  tagline: "Software Developer, Full-Stack & Cloud Systems",
   location: "Passau, Germany",
   bio: "Master's student in Computer Science at the University of Passau with 4.5+ years of professional experience building scalable, end-to-end backend systems and microservices in cloud environments. Strong in Java, Node.js, React, and TypeScript, with solid experience in service-oriented architecture and system design. Delivered enterprise SaaS projects across mobile banking, retirement, and insurance platforms.",
   email: "divyankshah97@gmail.com",
@@ -86,9 +86,9 @@ export const projects: Project[] = [
     title: "Mobile Home Page Redesign",
     description: "Led the backend redesign of TIAA's mobile home page across Banking, Mutual Funds, Retirement, and Brokerage, serving 3M+ customers.",
     details: [
-      "TIAA's mobile home page pulled data from a patchwork of legacy endpoints across four business lines (Banking, Mutual Funds, Retirement, Brokerage), which made the experience inconsistent and slow to change — different loading states, different data freshness, different failure behavior depending on which product a customer opened.",
+      "TIAA's mobile home page pulled data from a patchwork of legacy endpoints across four business lines (Banking, Mutual Funds, Retirement, Brokerage), which made the experience inconsistent and slow to change: different loading states, different data freshness, different failure behavior depending on which product a customer opened.",
       "I led the backend redesign in Java, Spring Boot, and Hibernate, consolidating those endpoints into a unified data aggregation layer that served a consistent, faster-loading home page to 3M+ customers. The layer normalized data shapes across products so the mobile team could build one card-based UI instead of four bespoke ones.",
-      "Worked closely with mobile, design, and product teams across all four business lines to ship a single unified experience instead of four disjointed ones — the hardest part wasn't the code, it was getting four product teams to agree on one contract.",
+      "Worked closely with mobile, design, and product teams across all four business lines to ship a single unified experience instead of four disjointed ones. The hardest part wasn't the code, it was getting four product teams to agree on one contract.",
       "This became the foundation the later server-driven UI work built on top of: once the data layer was unified, layout logic was the next thing worth moving out of the app.",
     ],
     tags: ["Java", "Spring Boot", "Hibernate"],
@@ -99,7 +99,7 @@ export const projects: Project[] = [
     title: "Monolith → Microservices Migration",
     description: "Migrated a legacy monolith to microservices on AWS ECS and Lambda with Redis caching, cutting average mobile login time from 5s to 3s.",
     details: [
-      "The existing monolith was becoming a bottleneck for both performance and release velocity as TIAA's mobile traffic grew — a single slow query or bad deploy could degrade the entire mobile experience, not just one feature.",
+      "The existing monolith was becoming a bottleneck for both performance and release velocity as TIAA's mobile traffic grew. A single slow query or bad deploy could degrade the entire mobile experience, not just one feature.",
       "I migrated core services to a microservices architecture deployed on AWS ECS and Lambda, introducing Redis caching for session and account data on the hot path so repeated reads didn't hit the database every time.",
       "This cut average mobile login time from 5s to 3s and made the system far easier to scale horizontally during peak periods like open enrollment, when traffic could spike well beyond normal levels.",
       "Splitting the monolith also meant teams could deploy their own services independently instead of coordinating a single large release train, which reduced deployment risk across the board.",
@@ -112,7 +112,7 @@ export const projects: Project[] = [
     title: "Server-Driven UI Architecture",
     description: "Designed a server-driven layout architecture in Spring Boot, moving UI logic to the backend and cutting yearly mobile app releases by ~50%.",
     details: [
-      "Every layout tweak to the mobile home page previously required a full app store release cycle — slow, and risky for experimentation, since even a minor card-reordering change had to go through the same review and rollout process as a major feature.",
+      "Every layout tweak to the mobile home page previously required a full app store release cycle: slow, and risky for experimentation, since even a minor card-reordering change had to go through the same review and rollout process as a major feature.",
       "I designed a server-driven UI (SDUI) architecture in Spring Boot that moved layout and card-ordering logic from the app to the backend, so screens could be reconfigured without shipping new app binaries. The client became a rendering engine for backend-defined layout, not the source of truth for it.",
       "This cut yearly mobile app release cycles by roughly 50% and let product teams experiment with layout changes far faster, including targeted A/B tests that would have been impractical under the old release-per-change model.",
       "It also meant a broken layout could be fixed server-side in minutes instead of waiting on app store review, which mattered for production incidents.",
@@ -125,10 +125,10 @@ export const projects: Project[] = [
     title: "Event-Driven Account Processing",
     description: "Built Kafka-based event-driven services to process account events asynchronously, decoupling microservices and improving throughput under load.",
     details: [
-      "Account lifecycle events — transactions, balance updates, notifications — were tightly coupled to the services that produced them, which limited throughput and made failures cascade: if the notification service slowed down, it could back up account processing too.",
+      "Account lifecycle events (transactions, balance updates, notifications) were tightly coupled to the services that produced them, which limited throughput and made failures cascade: if the notification service slowed down, it could back up account processing too.",
       "I built event-driven microservices on Apache Kafka to process these events asynchronously, decoupling the account service from downstream consumers like the ledger and notification services. Each consumer could process at its own pace without blocking the producer.",
       "This improved resilience and throughput under load, particularly during high-traffic periods when event volume spiked, since a slow or failing consumer no longer meant a slow or failing account service.",
-      "It also made it straightforward to add new consumers later — a new team could subscribe to the same event stream without touching the account service's code at all.",
+      "It also made it straightforward to add new consumers later. A new team could subscribe to the same event stream without touching the account service's code at all.",
     ],
     tags: ["Apache Kafka", "Spring Boot", "Event-Driven Design"],
     mockup: "event" as const,
@@ -138,9 +138,9 @@ export const projects: Project[] = [
     title: "KYC Liveness Verification App",
     description: "Built a real-time identity verification app from scratch in React and TypeScript, delivering liveness checks in under 100ms.",
     details: [
-      "Digital onboarding needed a fast, reliable way to confirm a real person — not a photo, video, or mask — was completing identity verification, without adding friction that would make people abandon the flow.",
+      "Digital onboarding needed a fast, reliable way to confirm a real person (not a photo, video, or mask) was completing identity verification, without adding friction that would make people abandon the flow.",
       "I built a real-time liveness verification app from scratch in React and TypeScript, integrating with backend identity verification services to perform face-presence and liveness checks in under 100ms.",
-      "Keeping the check that fast was deliberate — slow verification flows hurt onboarding conversion, so latency was treated as a product requirement from the start, not just a performance nice-to-have bolted on afterward.",
+      "Keeping the check that fast was deliberate: slow verification flows hurt onboarding conversion, so latency was treated as a product requirement from the start, not just a performance nice-to-have bolted on afterward.",
       "The app was built standalone from scratch, which meant making early architectural calls on camera handling, real-time frame processing, and UX feedback that a lot of KYC tooling gets wrong (unclear framing guidance, laggy feedback, unclear failure states).",
     ],
     tags: ["React", "TypeScript", "Computer Vision"],
@@ -151,9 +151,9 @@ export const projects: Project[] = [
     title: "Explainable AI for Content Moderation",
     description: "Researched explainable AI for abusive-content detection with NLP classifiers and a full-stack analysis app; co-authored a paper published in Springer.",
     details: [
-      "As a research intern, I worked on detecting abusive content in a way that didn't just classify text as toxic or not, but explained why — which tokens and phrases drove the model's decision, so a human reviewer could actually trust or challenge the output.",
+      "As a research intern, I worked on detecting abusive content in a way that didn't just classify text as toxic or not, but explained why: which tokens and phrases drove the model's decision, so a human reviewer could actually trust or challenge the output.",
       "Built NLP-based text classifiers plus an explainability layer, wrapped in a full-stack Node.js/React app for real-time content analysis (the mockup shown here mirrors that token-highlighting explanation view).",
-      "The explainability layer mattered more than the raw classification accuracy for this use case — moderation decisions affect real people, and a black-box \"toxic/not toxic\" score is much harder to justify or appeal than a decision with visible reasoning.",
+      "The explainability layer mattered more than the raw classification accuracy for this use case. Moderation decisions affect real people, and a black-box \"toxic/not toxic\" score is much harder to justify or appeal than a decision with visible reasoning.",
       "Co-authored a paper on the approach, published in Springer's Advances in Intelligent Systems and Computing.",
     ],
     tags: ["Python", "NLP", "Node.js", "React"],
@@ -170,7 +170,7 @@ export const hobbies = {
   yoga: {
     title: "Yoga, Meditation & Breathwork",
     description:
-      "I'm a certified yoga teacher (RYS 200-hour, Raj Yoga School) and currently teach yoga, meditation, and breathwork at the University of Passau. Over the years I've taught more than 1,000 people — students, corporates, and community groups — across India and Germany, including at the Consulate General of India's International Day of Yoga celebration in Munich.",
+      "I'm a certified yoga teacher (RYS 200-hour, Raj Yoga School) and currently teach yoga, meditation, and breathwork at the University of Passau. Over the years I've taught more than 1,000 people (students, corporates, and community groups) across India and Germany, including at the Consulate General of India's International Day of Yoga celebration in Munich.",
     images: [
       { src: "/images/hobbies/yoga-munich-event.jpg", alt: "Leading a yoga session at the Consulate General of India's International Day of Yoga event in Munich" },
       { src: "/images/hobbies/yoga-passau-class.jpg", alt: "Guiding a meditation session at the University of Passau" },
@@ -185,12 +185,12 @@ export const hobbies = {
 export const awards = [
   {
     title: "Super Team 2023",
-    org: "TIAA Global Capabilities — Enterprise Mobile Team",
+    org: "TIAA Global Capabilities, Enterprise Mobile Team",
     year: "2023",
   },
   {
     title: "Innovation Excellence Team 2021",
-    org: "TIAA India Titans — Annual Achiever Awards",
+    org: "TIAA India Titans, Annual Achiever Awards",
     year: "2021",
   },
 ];

@@ -34,7 +34,7 @@ export default function ContactForm() {
   if (status === "success") {
     return (
       <div className="contact-form__success" role="status">
-        <p>Thanks for reaching out — your message is on its way. I'll get back to you soon.</p>
+        <p>Thanks for reaching out, your message is on its way. I'll get back to you soon.</p>
       </div>
     );
   }
@@ -65,7 +65,7 @@ export default function ContactForm() {
 
       {status === "error" && (
         <p className="contact-form__error" role="alert">
-          Something went wrong sending that — please try again, or email me directly.
+          Something went wrong sending that. Please try again, or email me directly.
         </p>
       )}
     </form>

@@ -365,6 +365,8 @@ button {
   text-transform: uppercase;
   font-size: 0.85rem;
   margin: 0 0 0.75rem;
+  opacity: 0;
+  animation: hero-fade-up 0.6s ease 0.05s forwards;
 }
 
 .hero__name {
@@ -372,9 +374,12 @@ button {
   margin: 0 0 0.5rem;
   letter-spacing: -0.02em;
   background: linear-gradient(135deg, var(--text) 40%, var(--accent) 130%);
+  background-size: 200% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  opacity: 0;
+  animation: hero-fade-up 0.7s ease 0.2s forwards, hero-name-shimmer 1.6s ease 0.2s;
 }
 
 .hero__tagline {
@@ -382,6 +387,37 @@ button {
   font-weight: 500;
   color: var(--text-muted);
   margin: 0 0 0.5rem;
+  opacity: 0;
+  animation: hero-fade-up 0.6s ease 0.4s forwards;
+}
+
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-name-shimmer {
+  from {
+    background-position: 100% 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__eyebrow,
+  .hero__name,
+  .hero__tagline {
+    opacity: 1;
+    animation: none;
+  }
 }
 
 .hero__location {
