@@ -1,6 +1,6 @@
 export const profile = {
   name: "Divyank Sameer Shah",
-  tagline: "Software Developer, Full-Stack & Cloud Systems",
+  tagline: "Software Developer",
   location: "Passau, Germany",
   bio: "Master's student in Computer Science at the University of Passau with 4.5+ years of professional experience building scalable, end-to-end backend systems and microservices in cloud environments. Strong in Java, Node.js, React, and TypeScript, with solid experience in service-oriented architecture and system design. Delivered enterprise SaaS projects across mobile banking, retirement, and insurance platforms.",
   email: "divyankshah97@gmail.com",

@@ -9,8 +9,8 @@ export default function Hero() {
         <span className="hero__grid" />
       </div>
       <div className="hero__inner reveal">
-        <p className="hero__eyebrow">Hello, I'm</p>
-        <h1 className="hero__name">{profile.name}</h1>
+        <p className="hero__eyebrow">Hello I am</p>
+        <h1 className="hero__name">Divyank</h1>
         <h2 className="hero__tagline">{profile.tagline}</h2>
         <p className="hero__location">{profile.location}</p>
         <p className="hero__bio">{profile.bio}</p>
